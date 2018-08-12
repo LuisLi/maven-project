@@ -1,9 +1,12 @@
 pipeline {
+	def mvnHome
    agent any
    stages {
 	stage('Build') {
 		steps {
-			sh 'mvn clean package'
+			mvnHome = tool 'M3'
+			
+			sh "'${mvnHome}/bin/mvn' clean package"
 		}
 	}
    }
