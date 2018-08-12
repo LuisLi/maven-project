@@ -8,5 +8,6 @@ node {
    }
    stage('Build') {
       sh "'${mvnHome}/bin/mvn' clean package"
+	  sh "docker info"
    }
 }
