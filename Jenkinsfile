@@ -1,13 +1,12 @@
-pipeline {
+node {
    def mvnHome
-   agent any
-   stages {
-	stage('Build') {
-		steps {
-			mvnHome = tool 'M3'
-			
-			sh "'${mvnHome}/bin/mvn' clean package"
-		}
-	}
+   stage('Preparation') { // for display purposes
+      // Get the Maven tool.
+      // ** NOTE: This 'M3' Maven tool must be configured
+      // **       in the global configuration.           
+      mvnHome = tool 'M3'
+   }
+   stage('Build') {
+      sh "'${mvnHome}/bin/mvn' clean package"
    }
 }
