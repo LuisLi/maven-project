@@ -1,5 +1,5 @@
 pipeline {
-	def mvnHome
+   def mvnHome
    agent any
    stages {
 	stage('Build') {
